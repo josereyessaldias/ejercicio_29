@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-xs-8 col-sm-10 col-md-10">
+    <h1>Histories</h1>
+  </div>
+  <div class="col-xs-4 col-sm-2 col-md-2">
+    <%= link_to 'New History', new_history_path, class: "btn btn-info btn-sm" %>
+  </div>
+</div>
+
+<div class="row">
+  <% @histories.reverse.each do |history| %>
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <%= link_to(image_tag(history.picture.thumb), history) if history.picture? %>
+        <div class="caption">
+          <h3><%= history.title %></h3>
+          <small><%= time_ago_in_words(history.created_at) %> ago</small>
+          <p><%= history.content.truncate(150)  %></p>
+          <p><%= link_to 'Show', history, class: "btn btn-primary" %> <%= link_to 'Edit', edit_history_path(history), class: "btn btn-warning" %> <%= link_to 'Destroy', history, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+<br>
+
+

@@ -1,0 +1,39 @@
+<div class="container">
+
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <%= image_tag(@history.picture_url, style: "max-width: 100%; border-radius: 10px;") if @history.picture? %>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <h1><%= @history.title %></h1>
+          <small><%= time_ago_in_words(@history.created_at) %> ago</small>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+
+      <hr>
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <p><%= @history.content %></p>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-8"></div>
+        <div class="col-md-2">
+          <p><%= link_to 'Edit', edit_history_path(@history), class: "btn btn-warning btn-sm" %> <%= link_to 'Back', histories_path, class: "btn btn-info btn-sm" %></p>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+
+</div>
+
+
+
